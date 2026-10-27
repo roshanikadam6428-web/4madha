@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Solapur District</title>
+    <title>Madha Taluka, Solapur District</title>
 
     <link rel="stylesheet" href="./resources/ol.css">
     <link rel="stylesheet" href="resources/fontawesome-all.min.css">
@@ -23,51 +23,41 @@
         }
 
         #map {
-            width: 932px;
-            height: 626px;
+            width: 100%;
+            height: 750px;
             position: relative;
         }
 
         #map-title {
             position: absolute;
-            top: 10px;
+            top: 12px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 1000;
-            background: rgba(255,255,255,0.95);
-            color: #222;
-            padding: 10px 25px;
-            font-size: 24px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #222222;
+            padding: 10px 20px;
+            font-size: 25px;
             font-weight: bold;
-            border: 1px solid #444;
+            border: 1px solid #555555;
             border-radius: 4px;
+            text-align: center;
             white-space: nowrap;
         }
 
         .ol-control > * {
             background-color: #f8f8f8 !important;
-            color: #444 !important;
+            color: #444444 !important;
             border-radius: 0;
-        }
-
-        .ol-attribution a,
-        .gcd-gl-input::placeholder,
-        .search-layer-input-search::placeholder {
-            color: #444 !important;
-        }
-
-        .search-layer-input-search {
-            background-color: #f8f8f8 !important;
-        }
-
-        .ol-control > *:focus,
-        .ol-control > *:hover {
-            background-color: rgba(248,248,248,0.7) !important;
         }
 
         .ol-control {
             background-color: rgba(255,255,255,0.4) !important;
             padding: 2px !important;
+        }
+
+        .ol-attribution a {
+            color: #444444 !important;
         }
 
         .ol-scale-bar,
@@ -79,7 +69,9 @@
 </head>
 
 <body>
-    <div id="map-title">Solapur District</div>
+    <div id="map-title">
+        Madha Taluka, Solapur District
+    </div>
 
     <div id="map">
         <div id="popup" class="ol-popup">
@@ -112,17 +104,17 @@
     <script src="./resources/qgis2web.js"></script>
 
     <script>
-        // Add scale bar after the map is created
+        // Add metric scale bar after qgis2web creates the map
         if (typeof map !== 'undefined' && typeof ol !== 'undefined') {
-            var scaleControl = new ol.control.ScaleLine({
-                units: 'metric',
-                bar: true,
-                steps: 4,
-                text: true,
-                minWidth: 100
-            });
-
-            map.addControl(scaleControl);
+            map.addControl(
+                new ol.control.ScaleLine({
+                    units: 'metric',
+                    bar: true,
+                    steps: 4,
+                    text: true,
+                    minWidth: 100
+                })
+            );
         }
     </script>
 </body>
