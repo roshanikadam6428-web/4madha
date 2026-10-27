@@ -1,16 +1,14 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Madha Taluka, Solapur District</title>
 
     <link rel="stylesheet" href="./resources/ol.css">
     <link rel="stylesheet" href="resources/fontawesome-all.min.css">
-    <link href="resources/photon-geocoder-autocomplete.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="resources/photon-geocoder-autocomplete.min.css">
     <link rel="stylesheet" href="./resources/ol-layerswitcher.css">
     <link rel="stylesheet" href="./resources/qgis2web.css">
 
@@ -18,7 +16,6 @@
         html, body {
             margin: 0;
             padding: 0;
-            background-color: #ffffff;
             font-family: Arial, sans-serif;
         }
 
@@ -34,44 +31,31 @@
             left: 50%;
             transform: translateX(-50%);
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            color: #222222;
-            padding: 10px 20px;
+            background: white;
+            color: #222;
+            padding: 12px 20px;
+            border: 1px solid #555;
+            border-radius: 4px;
             font-size: 25px;
             font-weight: bold;
-            border: 1px solid #555555;
-            border-radius: 4px;
             text-align: center;
             white-space: nowrap;
         }
 
         .ol-control > * {
             background-color: #f8f8f8 !important;
-            color: #444444 !important;
-            border-radius: 0;
+            color: #444 !important;
         }
 
         .ol-control {
             background-color: rgba(255,255,255,0.4) !important;
             padding: 2px !important;
         }
-
-        .ol-attribution a {
-            color: #444444 !important;
-        }
-
-        .ol-scale-bar,
-        .ol-scale-line {
-            left: 10px !important;
-            bottom: 10px !important;
-        }
     </style>
 </head>
 
 <body>
-    <div id="map-title">
-        Madha Taluka, Solapur District
-    </div>
+    <div id="map-title">Madha Taluka, Solapur District</div>
 
     <div id="map">
         <div id="popup" class="ol-popup">
@@ -99,22 +83,20 @@
     <script src="styles/water_4_style.js"></script>
     <script src="styles/waterways_5_style.js"></script>
 
-    <script src="./layers/layers.js" type="text/javascript"></script>
+    <script src="./layers/layers.js"></script>
     <script src="./resources/Autolinker.min.js"></script>
     <script src="./resources/qgis2web.js"></script>
 
     <script>
-        // Add metric scale bar after qgis2web creates the map
-        if (typeof map !== 'undefined' && typeof ol !== 'undefined') {
-            map.addControl(
-                new ol.control.ScaleLine({
-                    units: 'metric',
-                    bar: true,
-                    steps: 4,
-                    text: true,
-                    minWidth: 100
-                })
-            );
+        // Kilometre scale bar
+        if (typeof map !== 'undefined') {
+            map.addControl(new ol.control.ScaleLine({
+                units: 'metric',
+                bar: true,
+                steps: 4,
+                text: true,
+                minWidth: 100
+            }));
         }
     </script>
 </body>
